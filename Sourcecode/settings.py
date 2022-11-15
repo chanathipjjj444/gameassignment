@@ -1,5 +1,4 @@
 
-
 level_map = [
 "                                            ",
 "                                               ",
@@ -10,8 +9,6 @@ level_map = [
 " xx              xxxxxxxx     xxxxx   xxxx        ",
 "            xx   xxxxxxxx   xxxxxxxxxxxxxxxxxxx",
 "xxxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
-
-
 highscore_file = "highscore.txt"
 tile_size = 75#(pixel)
 screen_width = 1200
