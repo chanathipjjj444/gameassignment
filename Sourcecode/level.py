@@ -9,7 +9,7 @@ from tile import Tile
 
 SCREEN = pg.display.set_mode((screen_width, screen_height))
 pg.display.set_caption("gameover")
-GAMEOVER = pg.image.load("graphics/non_character/gameover.jpg")
+GAMEOVER = pg.image.load("Infographics/non_character/gameover.jpg")
 screen = pg.display.set_mode((screen_width, screen_height))
 
 
@@ -257,17 +257,17 @@ class Level:
     def check_collide(self):
         #check_collide_laser
         if pg.sprite.spritecollide(self.player.sprite,self.bullet, True):
-            player_damaged = mixer.Sound("graphics/non_character/sound/player_hit.wav")
+            player_damaged = mixer.Sound("Infographics/non_character/sound/player_hit.wav")
             player_damaged.play()
             self.player_sprite.current_health -= 5
         #check_collide_shuriken
         if pg.sprite.spritecollide(self.player_sprite, self.bounce_bullet, False):
-            player_damaged = mixer.Sound("graphics/non_character/sound/player_hit.wav")
+            player_damaged = mixer.Sound("Infographics/non_character/sound/player_hit.wav")
             player_damaged.play()
             self.player_sprite.current_health -= 1
 
         if pg.sprite.spritecollide(self.player_sprite,self.gold_bullet,True):
-            coin_sound = mixer.Sound("graphics/non_character/sound/coin_sound.wav")
+            coin_sound = mixer.Sound("Infographics/non_character/sound/coin_sound.wav")
             coin_sound.play()
             self.extrascore += 100
             self.tf = False
@@ -289,5 +289,5 @@ class Level:
 
     def highscore_W(self):
         score_to_record = self.score
-        with open("leaderboard.txt","a") as file:
+        with open("leaderboard.txt", "a") as file:
             file.write(str(score_to_record) + " :" + self.name + "\n")

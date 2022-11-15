@@ -14,4 +14,4 @@ def import_folder(path):
 
 #warning!! Each folder should have only img file only.
 
-path = "graphics/character/run/"
+path = "Infographics/character/run/"

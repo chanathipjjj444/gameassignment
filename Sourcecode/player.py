@@ -50,7 +50,7 @@ class Player(pg.sprite.Sprite):
 
 
     def import_character_assets(self):
-        character_path = "graphics/character/"
+        character_path = "Infographics/character/"
         self.animations = {"idle": [], "run":[], "jump":[], "fall":[], "slash":[] }
 
         for animation in self.animations.keys(): #try to get acces to all the animation file key
@@ -59,7 +59,7 @@ class Player(pg.sprite.Sprite):
 
 
     def jump(self):
-        Jump_sound = mixer.Sound("graphics/non_character/sound/jump_sound.ogg")
+        Jump_sound = mixer.Sound("Infographics/non_character/sound/jump_sound.ogg")
         Jump_sound.play()
         self.direction.y = self.jump_speed
         self.jump_time = pg.time.get_ticks()
@@ -74,7 +74,7 @@ class Player(pg.sprite.Sprite):
         now = pg.time.get_ticks()
         keys = pg.key.get_pressed()
         if  now - self.jump_time > 300 and keys[pg.K_j]:
-            Jump_sound = mixer.Sound("graphics/non_character/sound/jump_sound.ogg")
+            Jump_sound = mixer.Sound("Infographics/non_character/sound/jump_sound.ogg")
             Jump_sound.play()
             self.direction.y = 0
             self.direction.y += self.jump_speed
@@ -180,7 +180,7 @@ class Player(pg.sprite.Sprite):
 
 
     def import_dust_run_particle(self):
-        self.dust_run_particles = import_folder("graphics/character/dust_particles/run/") #import dust particle
+        self.dust_run_particles = import_folder("Infographics/character/dust_particles/run/") #import dust particle
 
 
     def get_state(self): #check the self.direction(vector) to get the state of the player
@@ -188,7 +188,7 @@ class Player(pg.sprite.Sprite):
 
         if key[pg.K_k]:
                 self.status = "slash"
-                slash = mixer.Sound("graphics/non_character/sound/slash_sound.wav")
+                slash = mixer.Sound("Infographics/non_character/sound/slash_sound.wav")
                 slash.play()
                 self.time_slash = pg.time.get_ticks()
 

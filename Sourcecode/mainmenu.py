@@ -12,7 +12,7 @@ pygame.init()
 SCREEN = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Menu")
 
-BG = pygame.image.load("graphics/non_character/new_bg.jpg")
+BG = pygame.image.load("Infographics/non_character/new_bg.jpg")
 
 
 screen_width = 1200
@@ -49,10 +49,10 @@ def draw_text(self, text, size, color, x, y):
     self.screen.blit(text_surface, text_rect)
 
 def get_font(size):  # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("graphics/non_character/njnaruto.ttf", size)
+    return pygame.font.Font("Infographics/non_character/njnaruto.ttf", size)
 
 def play():
-    mixer.music.load("graphics/non_character/sound/ingame_bg.mp3")
+    mixer.music.load("Infographics/non_character/sound/ingame_bg.mp3")
     mixer.music.play(-1)
     while True:
         for event in pg.event.get():
@@ -75,11 +75,11 @@ def play():
 
 def main_menu():
     user_text = ""
-    base_font = pg.font.Font('graphics/non_character/njnaruto.ttf',25)
+    base_font = pg.font.Font('Infographics/non_character/njnaruto.ttf',25)
     input_rect = pg.Rect(590,145,300,32)
     color_passive = pg.Color('lightskyblue3')
     color_active = pg.Color('pink')
-    mixer.music.load("graphics/non_character/sound/mainmenu_bg.mp3")
+    mixer.music.load("Infographics/non_character/sound/mainmenu_bg.mp3")
     mixer.music.play(-1)
     color = color_passive
 
@@ -96,11 +96,11 @@ def main_menu():
 
         ENTERNAME = get_font(25).render("Enter your name:", True, "White")
 
-        PLAY_BUTTON = Button(image=pygame.image.load("graphics/non_character/Play Rect.png"), pos=(600, 250),
+        PLAY_BUTTON = Button(image=pygame.image.load("Infographics/non_character/Play Rect.png"), pos=(600, 250),
                              text_input="PLAY", font=get_font(50), base_color="#d7fcd4", hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("graphics/non_character/Options Rect.png"), pos=(600, 400),
+        OPTIONS_BUTTON = Button(image=pygame.image.load("Infographics/non_character/Options Rect.png"), pos=(600, 400),
                                 text_input="HighScore", font=get_font(50), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("graphics/non_character/Quit Rect.png"), pos=(600, 550),
+        QUIT_BUTTON = Button(image=pygame.image.load("Infographics/non_character/Quit Rect.png"), pos=(600, 550),
                              text_input="QUIT", font=get_font(50), base_color="#d7fcd4", hovering_color="White")
 
         SCREEN.blit(MENU_TEXT, MENU_RECT)
@@ -116,7 +116,7 @@ def main_menu():
                     if event.key == pg.K_BACKSPACE:
                         user_text = user_text[:-1]
                     elif event.key == pg.K_RETURN:
-                        entersound = mixer.Sound("graphics/non_character/sound/enter_sound.wav")
+                        entersound = mixer.Sound("Infographics/non_character/sound/enter_sound.wav")
                         entersound.play()
                         level.name = user_text
                         can_play = True
@@ -126,7 +126,7 @@ def main_menu():
                         if text_surface.get_width() > input_rect.w - 10:
                             user_text = user_text[:-1]
                         if(event.key != pg.K_LSHIFT):
-                            keyboard_sound = mixer.Sound("graphics/non_character/sound/keyboard_input_sound.wav")
+                            keyboard_sound = mixer.Sound("Infographics/non_character/sound/keyboard_input_sound.wav")
                             keyboard_sound.play()
 
             if event.type == pygame.QUIT:
@@ -139,17 +139,17 @@ def main_menu():
                 else:
                     active = False
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS) and can_play:
-                    selected_sound = mixer.Sound("graphics/non_character/sound/menu_selected.wav")
+                    selected_sound = mixer.Sound("Infographics/non_character/sound/menu_selected.wav")
                     selected_sound.play()
                     play()
 
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    selected_sound = mixer.Sound("graphics/non_character/sound/menu_selected.wav")
+                    selected_sound = mixer.Sound("Infographics/non_character/sound/menu_selected.wav")
                     selected_sound.play()
                     high_score()
 
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    selected_sound = mixer.Sound("graphics/non_character/sound/menu_selected.wav")
+                    selected_sound = mixer.Sound("Infographics/non_character/sound/menu_selected.wav")
                     selected_sound.play()
                     pygame.quit()
                     sys.exit()
@@ -170,7 +170,7 @@ def high_score():
     highscore = gethighscore()
     while True:
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
-        HIGH_SCORE = pygame.image.load("graphics/non_character/highscore.png")
+        HIGH_SCORE = pygame.image.load("Infographics/non_character/highscore.png")
         SCREEN.blit(HIGH_SCORE, (0, 0))
         HIGHSCORE_TEXT = get_font(80).render("Top 5 Score!!", True, "Green")
         HIGHSCORE_RECT = HIGHSCORE_TEXT.get_rect(center=(600, 50))
@@ -208,7 +208,7 @@ def high_score():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if OPTIONS_BACK.checkForInput(OPTIONS_MOUSE_POS):
-                    selected_sound = mixer.Sound("graphics/non_character/sound/menu_selected.wav")
+                    selected_sound = mixer.Sound("Infographics/non_character/sound/menu_selected.wav")
                     selected_sound.play()
                     main_menu()
         pygame.display.update()
@@ -218,7 +218,7 @@ def loser_screen():
     while True:
 
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
-        HIGH_SCORE = pygame.image.load("graphics/non_character/loser_wallpaper.jpg")
+        HIGH_SCORE = pygame.image.load("Infographics/non_character/loser_wallpaper.jpg")
         SCREEN.blit(HIGH_SCORE, (0, 0))
         HIGHSCORE_TEXT = get_font(80).render("You just lost the way of a Ninja!", True, "Red")
         HIGHSCORE_RECT = HIGHSCORE_TEXT.get_rect(center=(600, 50))
@@ -226,7 +226,7 @@ def loser_screen():
         HIGHSCORE_RECT2 = HIGHSCORE_TEXT2.get_rect(center=(870, 150))
         SCREEN.blit(HIGHSCORE_TEXT, HIGHSCORE_RECT)
         SCREEN.blit(HIGHSCORE_TEXT2, HIGHSCORE_RECT2)
-        memes = pygame.image.load("graphics/non_character/memes.jpg")
+        memes = pygame.image.load("Infographics/non_character/memes.jpg")
         SCREEN.blit(memes,(500,200))
         if pg.time.get_ticks() - count_down > 3000:
             high_score()
@@ -242,7 +242,7 @@ def loser_screen():
         #         sys.exit()
         #     if event.type == pygame.MOUSEBUTTONDOWN:
         #         if OPTIONS_BACK.checkForInput(OPTIONS_MOUSE_POS):
-        #             selected_sound = mixer.Sound("graphics/non_character/sound/menu_selected.wav")
+        #             selected_sound = mixer.Sound("Infographics/non_character/sound/menu_selected.wav")
         #             selected_sound.play()
         #             main_menu()
         pygame.display.update()

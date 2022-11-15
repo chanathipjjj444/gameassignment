@@ -9,7 +9,7 @@ from settings import screen_width, screen_height
 class Bullet_generater(pg.sprite.Sprite):
     def __init__(self, pos_x, pos_y,spawn):
         super().__init__()
-        self.image = pg.image.load("./graphics/non_character/bullet.png").convert_alpha()
+        self.image = pg.image.load("Infographics/non_character/bullet.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.center = [pos_x, pos_y]
         self.bullet_speed = 3
@@ -33,7 +33,7 @@ class Bullet_generater(pg.sprite.Sprite):
 class Bounce_bullet(pg.sprite.Sprite):
     def __init__(self,posx, posy,spawn):
         super().__init__()
-        self.image = pg.image.load("./graphics/non_character/shuriken/1.png")
+        self.image = pg.image.load("Infographics/non_character/shuriken/1.png")
         self.rect = self.image.get_rect()
         self.rect.center = [posx, posy]
         self.bullet_speed_x = 1.5
@@ -71,7 +71,7 @@ class Bounce_bullet(pg.sprite.Sprite):
 class GOLD_BULLET(pg.sprite.Sprite):
     def __init__(self, pos_x, pos_y,spawn):
         super().__init__()
-        self.image = pg.image.load("./graphics/non_character/yellow_bullet.png").convert_alpha()
+        self.image = pg.image.load("Infographics/non_character/yellow_bullet.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (30, 31))
         self.rect = self.image.get_rect()
         self.rect.center = [pos_x, pos_y]
