@@ -25,12 +25,14 @@ def load_data():
             highscore = int(f.read())
         except:
             highscore = 0
+
 def gethighscore():
     with open("leaderboard.txt", "r") as file:
         readthefile = file.readlines()
         sortedData = natsorted(readthefile, reverse=True)
         for num in range(len(sortedData)):
            sortedData[num]  = sortedData[num].strip()
+
     return sortedData
 def draw_text(self, text, size, color, x, y):
     font = get_font(size)
